@@ -134,7 +134,7 @@ impl Downloader {
             .context("fetching main releases URL")?;
         let text = res.text().await?;
 
-        let re = Regex::new(r#"<a href="/release/(?P<entity>[^"]+)">(?P<version>[^<]+)</a>"#)?;
+        let re = Regex::new(r#"<a href="(?:/release/)?(?P<entity>[^"]+)">(?P<version>[^<]+)</a>"#)?;
 
         let mut records = vec![];
 
